@@ -31,4 +31,4 @@ include_once(dirname(__DIR__) . '/routes/routes.php');
 $router = new Core\Router();
 $router->addRoutes($routes);
 
-$router->dispatch($_SERVER['QUERY_STRING']);
+$router->dispatch($_SERVER['REQUEST_URI']);

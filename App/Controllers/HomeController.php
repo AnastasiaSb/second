@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\Product\Category;
 use App\Models\Product\Product;
 use Core\Request;
+use Core\Session;
 use \Core\View;
 
 /**
@@ -45,6 +46,17 @@ class HomeController extends \Core\Controller
         $products = $this->product->findBy(['status' => 1]);
 
         View::renderTemplate('home/index.html', ['products' => $products]);
+    }
+
+    public function add_to_cart($id){
+        if(isset($_SESSION['id'])){
+            $_SESSION['id'] = $id;
+            $_SESSION['count'] = $_SESSION['count']+1;
+        }else {
+            $_SESSION['id'] = $id;
+            $_SESSION['count'] = 1;
+        }
+        var_dump($_SESSION);
     }
 
     public function categoriesAction()

@@ -105,7 +105,7 @@ class Product extends Model
     /**
      * @return int
      */
-    public function getCategoryId():int
+    public function getCategoryId()
     {
         return $this->categoryid;
     }

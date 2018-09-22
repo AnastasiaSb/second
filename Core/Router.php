@@ -137,7 +137,6 @@ class Router
         if (class_exists($controller)) {
             return $this->createController($controller, $url);
         }
-
         throw new \Exception("Controller class $controller not found");
     }
 
